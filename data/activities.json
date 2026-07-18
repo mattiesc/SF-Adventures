@@ -1,0 +1,847 @@
+{
+  "meta": {
+    "title": "SF Adventures",
+    "description": "A catalog of San Francisco adventures for two. Source of truth for the app.",
+    "version": "0.1.0",
+    "lastUpdated": "2026-07-18",
+    "legend": {
+      "cost": {
+        "0": "Free",
+        "1": "$ — cheap (under ~$20/person)",
+        "2": "$$ — moderate (~$20–50/person)",
+        "3": "$$$ — splurge (~$50–100/person)",
+        "4": "$$$$ — big night (~$100+/person)"
+      },
+      "duration": {
+        "quick": "Under ~1.5 hours",
+        "half-day": "~2–4 hours",
+        "full-day": "5+ hours / makes a whole day"
+      }
+    },
+    "categories": [
+      "Outdoorsy & scenic",
+      "Food & drink",
+      "Arts & culture",
+      "Playful & active"
+    ],
+    "schema": {
+      "id": "kebab-case unique slug",
+      "name": "display name",
+      "category": "one of meta.categories",
+      "neighborhood": "SF area, for clustering nearby activities",
+      "description": "why it's a fun adventure for two",
+      "cost": "$ symbol string, or 'Free'",
+      "costLevel": "0–4, see legend.cost",
+      "duration": "quick | half-day | full-day",
+      "logistics": {
+        "indoorOutdoor": "indoor | outdoor | mixed",
+        "weatherDependent": "boolean",
+        "reservation": "none | recommended | required",
+        "dogFriendly": "boolean",
+        "gettingThere": "transit/parking note"
+      },
+      "tags": ["freeform filter tags"],
+      "pairsWith": ["ids of nearby activities that combine well"]
+    }
+  },
+  "activities": [
+    {
+      "id": "lands-end-trail",
+      "name": "Lands End Coastal Trail",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Outer Richmond / Sutro",
+      "description": "A cliffside trail with cypress groves, hidden coves, and dead-on Golden Gate Bridge views. Start at the Sutro Baths ruins and wander to Mile Rock Beach and the stone labyrinth out on the point.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Parking lot at Merrie Way; Muni 38 to 48th Ave. Bring a windbreaker — it's foggy and cold."
+      },
+      "tags": ["hike", "ocean", "views", "ruins", "iconic"],
+      "pairsWith": ["legion-of-honor", "sutro-baths"]
+    },
+    {
+      "id": "sutro-baths",
+      "name": "Sutro Baths Ruins & Cliff House",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Outer Richmond / Sutro",
+      "description": "Explore the concrete skeleton of a giant Victorian bathhouse right on the surf, then duck into the sea cave at the far end when the tide's low.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Same lot as Lands End. Sturdy shoes — rocks are slick."
+      },
+      "tags": ["ruins", "ocean", "history", "sunset"],
+      "pairsWith": ["lands-end-trail"]
+    },
+    {
+      "id": "twin-peaks-sunset",
+      "name": "Twin Peaks at Sunset",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Twin Peaks",
+      "description": "The best 360° view in the city — downtown, the bay, the bridges, the ocean, all at once. Time it for golden hour and stay as the fog rolls in and the lights come on.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Drive or bike up Twin Peaks Blvd; small lot at the top. Windy and cold — bring layers."
+      },
+      "tags": ["views", "sunset", "romantic", "photo"],
+      "pairsWith": ["corona-heights"]
+    },
+    {
+      "id": "tiled-steps",
+      "name": "16th Ave Tiled Steps + Grand View Park",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Inner Sunset / Golden Gate Heights",
+      "description": "Climb a 163-step mosaic staircase (sea to stars), then keep going up to Grand View Park (Turtle Hill) for a surprise panorama of the ocean and the whole west side.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "16th Ave & Moraga. Muni N to Sunset. It's a real stair workout."
+      },
+      "tags": ["stairs", "mosaic", "views", "hidden-gem", "photo"],
+      "pairsWith": ["andytown-coffee"]
+    },
+    {
+      "id": "presidio-tunnel-tops",
+      "name": "Presidio Tunnel Tops Picnic",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Presidio",
+      "description": "New parkland built over the highway tunnels with lawns, overlooks, and campfire-style seating framing the Golden Gate Bridge. Grab food from the Presidio Pop-Up nearby and picnic.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Free Presidio Go shuttle; parking at the Presidio Transit Center."
+      },
+      "tags": ["picnic", "views", "bridge", "relaxed"],
+      "pairsWith": ["andy-goldsworthy", "crissy-field"]
+    },
+    {
+      "id": "andy-goldsworthy",
+      "name": "Andy Goldsworthy Sculpture Hunt",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Presidio",
+      "description": "Four hidden land-art installations scattered through the Presidio forest — Spire, Wood Line, Tree Fall, and Earth Wall. Make a scavenger hunt of finding all four on foot.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Start near the Presidio main post; map the four locations first."
+      },
+      "tags": ["art", "walk", "forest", "scavenger-hunt"],
+      "pairsWith": ["presidio-tunnel-tops"]
+    },
+    {
+      "id": "crissy-field",
+      "name": "Crissy Field to Warming Hut Walk",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Presidio / Marina",
+      "description": "Flat waterfront stroll from the Marina out to Torpedo Wharf (best under-the-bridge view in the city) and the Warming Hut café. Watch kite-surfers and container ships slide by.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Parking along Mason St; PresidiGo shuttle. Coffee/snacks at the Warming Hut."
+      },
+      "tags": ["walk", "waterfront", "bridge", "easy"],
+      "pairsWith": ["presidio-tunnel-tops", "off-the-grid"]
+    },
+    {
+      "id": "corona-heights",
+      "name": "Corona Heights Park",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Castro / Corona Heights",
+      "description": "A short scramble up a red-rock outcrop rewards you with a clear downtown-and-bay view and way fewer tourists than Twin Peaks. The Randall Museum at the base is a fun add-on.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "States St & Museum Way. Street parking; steep in spots."
+      },
+      "tags": ["views", "hike", "hidden-gem", "quick"],
+      "pairsWith": ["twin-peaks-sunset", "castro-theatre"]
+    },
+    {
+      "id": "angel-island",
+      "name": "Angel Island Day Trip",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "SF Bay (ferry from the Ferry Building)",
+      "description": "Ferry to the 'Ellis Island of the West,' then bike or hike the 5-mile perimeter road for 360° bay views, immigration-station history, and a picnic with no cars in sight.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "full-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Blue & Gold ferry from Pier 41 or the Ferry Building; book ahead on weekends. Bike rentals on the island."
+      },
+      "tags": ["ferry", "hike", "bike", "history", "day-trip"],
+      "pairsWith": ["ferry-building"]
+    },
+    {
+      "id": "ocean-beach-bonfire",
+      "name": "Ocean Beach Bonfire",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Outer Sunset",
+      "description": "Claim one of the designated concrete fire rings, bring firewood and s'mores, and watch the sun drop into the Pacific. The quintessential low-key SF evening.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Fire rings near Fulton–Lincoln. Fires allowed until 9:30pm, must use the rings. Bring layers, it gets cold fast."
+      },
+      "tags": ["beach", "sunset", "fire", "romantic", "evening"],
+      "pairsWith": ["outer-sunset-crawl"]
+    },
+    {
+      "id": "bernal-hill",
+      "name": "Bernal Heights Hilltop",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Bernal Heights",
+      "description": "A grassy, off-leash-friendly hill with a mellow loop trail and one of the coziest city panoramas. Locals-and-their-dogs energy, especially at sunset.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Bernal Heights Blvd loops the hill; street parking below."
+      },
+      "tags": ["views", "dogs", "walk", "sunset", "local"],
+      "pairsWith": ["mission-burrito-crawl"]
+    },
+    {
+      "id": "stow-lake-boats",
+      "name": "Stow Lake Pedal Boats",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Golden Gate Park",
+      "description": "Rent a pedal or row boat and drift around Strawberry Hill, past the waterfall and Chinese pavilion. Ridiculously charming and cheap. Cap it with the boathouse snack bar.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Stow Lake Boathouse, Golden Gate Park. Cash or card; hourly rentals."
+      },
+      "tags": ["boats", "park", "romantic", "cheap", "classic"],
+      "pairsWith": ["de-young", "japanese-tea-garden"]
+    },
+    {
+      "id": "japanese-tea-garden",
+      "name": "Japanese Tea Garden",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Golden Gate Park",
+      "description": "The oldest public Japanese garden in the US — koi ponds, a drum bridge, pagodas, and a tea house for matcha and mochi. Go right at opening on a weekday for near-solitude (free before 10am on some mornings).",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Music Concourse, Golden Gate Park. Free entry early on Mon/Wed/Fri mornings — check current hours."
+      },
+      "tags": ["garden", "tea", "peaceful", "romantic"],
+      "pairsWith": ["de-young", "stow-lake-boats"]
+    },
+    {
+      "id": "glen-canyon",
+      "name": "Glen Canyon Park",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Glen Park",
+      "description": "A genuinely wild rocky canyon hidden in the middle of the city — a creek, red-tailed hawks, and beginner rock-climbing outcrops. Feels like you left SF entirely.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Glen Park BART, then a short walk; or park at Elk & Chenery."
+      },
+      "tags": ["hike", "nature", "hidden-gem", "climbing"],
+      "pairsWith": []
+    },
+    {
+      "id": "ferry-building",
+      "name": "Ferry Building Marketplace + Farmers Market",
+      "category": "Food & drink",
+      "neighborhood": "Embarcadero",
+      "description": "Graze your way through artisan stalls — oysters at Hog Island, Cowgirl cheese, Blue Bottle, Recchiuti chocolates. Come Saturday morning for the huge waterfront farmers market.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Embarcadero BART/Muni; the F-line streetcar drops you at the door. Farmers market Tue/Thu/Sat."
+      },
+      "tags": ["food", "market", "waterfront", "coffee", "browse"],
+      "pairsWith": ["angel-island", "embarcadero-walk"]
+    },
+    {
+      "id": "swan-oyster-depot",
+      "name": "Swan Oyster Depot",
+      "category": "Food & drink",
+      "neighborhood": "Nob Hill / Polk",
+      "description": "A century-old seafood counter with 18 stools and no tables. Sit elbow-to-elbow, order the combo crab-and-oyster plate, and chat with the fishmongers. A true SF rite of passage.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "1517 Polk St. Cash preferred, counter only, expect a line — go early or off-peak."
+      },
+      "tags": ["seafood", "iconic", "counter", "lunch"],
+      "pairsWith": []
+    },
+    {
+      "id": "mission-burrito-crawl",
+      "name": "Mission Burrito Showdown",
+      "category": "Food & drink",
+      "neighborhood": "Mission",
+      "description": "Settle the eternal debate for yourselves: split a carnitas super burrito at La Taqueria (no rice, sued into being 'America's best') vs. El Farolito at midnight. Deeply serious, deeply fun.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "24th St BART for La Taqueria; both are cash-friendly. Bring an appetite."
+      },
+      "tags": ["burrito", "cheap", "iconic", "debate"],
+      "pairsWith": ["dolores-park", "bi-rite-creamery", "bernal-hill"]
+    },
+    {
+      "id": "tonga-room",
+      "name": "Tonga Room & Hurricane Bar",
+      "category": "Food & drink",
+      "neighborhood": "Nob Hill",
+      "description": "A gloriously kitschy tiki bar in the Fairmont basement with an indoor lagoon, a floating band, and a simulated thunderstorm every 30 minutes. Order a scorpion bowl and lean into it.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Fairmont Hotel, 950 Mason St. Cable car up California St for the full effect. Book ahead on weekends."
+      },
+      "tags": ["tiki", "cocktails", "kitsch", "date-night", "iconic"],
+      "pairsWith": ["cable-car-lombard"]
+    },
+    {
+      "id": "trick-dog",
+      "name": "Cocktails at Trick Dog",
+      "category": "Food & drink",
+      "neighborhood": "Mission",
+      "description": "A world's-best-bars regular that reinvents its whole themed menu a couple times a year (a Zodiac, a Pantone deck, a mixtape). Inventive drinks, great snacks, buzzy upstairs.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "3010 20th St. No reservations — go early or expect a wait upstairs."
+      },
+      "tags": ["cocktails", "date-night", "creative", "acclaimed"],
+      "pairsWith": ["mission-burrito-crawl", "urban-putt"]
+    },
+    {
+      "id": "dim-sum-chinatown",
+      "name": "Chinatown Dim Sum",
+      "category": "Food & drink",
+      "neighborhood": "Chinatown",
+      "description": "Grab a box of pillowy pork buns and shrimp har gow to-go from Good Mong Kok, then eat them on a Portsmouth Square bench, or sit down for the full cart experience elsewhere.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Stockton St. Cash for the to-go spots; wander Ross Alley and the fortune-cookie factory after."
+      },
+      "tags": ["dim-sum", "cheap", "walk", "iconic"],
+      "pairsWith": ["city-lights", "musee-mecanique"]
+    },
+    {
+      "id": "off-the-grid",
+      "name": "Off the Grid: Fort Mason (Fridays)",
+      "category": "Food & drink",
+      "neighborhood": "Marina / Fort Mason",
+      "description": "SF's biggest food-truck gathering — 30+ trucks, a bar, and live music on the waterfront on Friday nights (seasonal). Graze small plates from a dozen cuisines with the bridge in view.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Fort Mason Center. Friday evenings, roughly spring–fall — check the schedule."
+      },
+      "tags": ["food-trucks", "waterfront", "casual", "variety", "evening"],
+      "pairsWith": ["crissy-field"]
+    },
+    {
+      "id": "bi-rite-creamery",
+      "name": "Bi-Rite Creamery + Dolores Park",
+      "category": "Food & drink",
+      "neighborhood": "Mission / Dolores",
+      "description": "Get salted-caramel or honey-lavender scoops (or the soft-serve window to skip the line), then find a patch of grass at Dolores Park for peak sunny-day people-watching and skyline views.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "18th & Dolores. The scoop-shop line can be long; the soft-serve window next door is faster."
+      },
+      "tags": ["ice-cream", "park", "cheap", "sunny-day"],
+      "pairsWith": ["mission-burrito-crawl", "dolores-park"]
+    },
+    {
+      "id": "andytown-coffee",
+      "name": "Outer Sunset Coffee Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Outer Sunset",
+      "description": "Warm up with a Snowy Plover (espresso, sparkling water, cream) at Andytown, then wander the sleepy surf-town blocks of Judah St to more cafés, thrift shops, and the beach.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Muni N to the outer stops. Foggy and mellow — a cozy morning."
+      },
+      "tags": ["coffee", "walk", "neighborhood", "chill"],
+      "pairsWith": ["ocean-beach-bonfire", "tiled-steps"]
+    },
+    {
+      "id": "brewery-taproom",
+      "name": "Dogpatch / SoMa Brewery Hop",
+      "category": "Food & drink",
+      "neighborhood": "Dogpatch / SoMa",
+      "description": "Work through a few beloved indie taprooms — Cellarmaker, Harmonic, or Triple Voodoo — often with a food truck parked outside and shuffleboard inside. Laid-back afternoon energy.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "T-Third light rail through Dogpatch. Many taprooms are dog-friendly."
+      },
+      "tags": ["beer", "casual", "afternoon", "dogs"],
+      "pairsWith": ["dogpatch-boulders", "museum-of-craft"]
+    },
+    {
+      "id": "de-young",
+      "name": "de Young Museum + Free Tower",
+      "category": "Arts & culture",
+      "neighborhood": "Golden Gate Park",
+      "description": "American art and blockbuster shows in a striking copper building — but the sleeper move is the free glass observation tower on the 9th floor for a 360° view over the park and city.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Music Concourse, Golden Gate Park. Tower is free even without a ticket. Free admission on the first Tuesday monthly."
+      },
+      "tags": ["museum", "art", "views", "free-tower"],
+      "pairsWith": ["japanese-tea-garden", "stow-lake-boats", "cal-academy"]
+    },
+    {
+      "id": "cal-academy",
+      "name": "California Academy of Sciences (NightLife 21+)",
+      "category": "Arts & culture",
+      "neighborhood": "Golden Gate Park",
+      "description": "A rainforest dome, planetarium, aquarium, and living roof under one ceiling. Thursday's 21+ NightLife turns it into a cocktails-and-science party with DJs — a genuinely great date.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Across the concourse from the de Young. NightLife is Thursdays 6–10pm, 21+; book online."
+      },
+      "tags": ["museum", "science", "aquarium", "nightlife", "date-night"],
+      "pairsWith": ["de-young"]
+    },
+    {
+      "id": "exploratorium-after-dark",
+      "name": "Exploratorium After Dark (18+)",
+      "category": "Arts & culture",
+      "neighborhood": "Embarcadero / Pier 15",
+      "description": "A hands-on science playground for grown-ups on Thursday nights — hundreds of tinker-with-it exhibits, a Tactile Dome, cocktails, and a rotating adult theme. Endlessly playful.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Pier 15 on the Embarcadero; F-line streetcar. After Dark is Thursdays 6–10pm, 18+."
+      },
+      "tags": ["museum", "interactive", "science", "nightlife", "playful"],
+      "pairsWith": ["ferry-building", "embarcadero-walk"]
+    },
+    {
+      "id": "sfmoma",
+      "name": "SFMOMA",
+      "category": "Arts & culture",
+      "neighborhood": "SoMa",
+      "description": "Seven floors of modern and contemporary art, a free-to-visit second-floor sculpture terrace and living wall, and a rooftop garden. Big, contemplative, and easy to pair with dinner downtown.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "151 Third St; Montgomery BART. The ground/second-floor galleries and terrace are free to enter."
+      },
+      "tags": ["museum", "modern-art", "indoor", "rainy-day"],
+      "pairsWith": ["yerba-buena", "trick-dog"]
+    },
+    {
+      "id": "legion-of-honor",
+      "name": "Legion of Honor",
+      "category": "Arts & culture",
+      "neighborhood": "Lincoln Park / Outer Richmond",
+      "description": "A Beaux-Arts palace of European art (and a real Rodin Thinker) perched above the sea with a Golden Gate view from the front steps. Combine with a Lands End walk for the perfect day.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "100 34th Ave, Lincoln Park. Free admission first Tuesday monthly. Pairs perfectly with Lands End."
+      },
+      "tags": ["museum", "art", "views", "elegant"],
+      "pairsWith": ["lands-end-trail", "sutro-baths"]
+    },
+    {
+      "id": "castro-theatre",
+      "name": "Movie at the Castro / Roxie / Balboa",
+      "category": "Arts & culture",
+      "neighborhood": "Castro / Mission / Richmond",
+      "description": "See something on a real single-screen marquee — a sing-along, a restored classic, or a first-run indie — at one of SF's historic movie palaces. Old-school date magic.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Castro (Castro St), Roxie (16th St, Mission), Balboa (Outer Richmond). Note: the Castro Theatre is under renovation — check status."
+      },
+      "tags": ["film", "historic", "date-night", "indoor", "rainy-day"],
+      "pairsWith": ["corona-heights", "mission-burrito-crawl"]
+    },
+    {
+      "id": "city-lights",
+      "name": "City Lights Books + North Beach Beat Walk",
+      "category": "Arts & culture",
+      "neighborhood": "North Beach",
+      "description": "Browse the legendary Beat-era bookstore, toast the poets at Vesuvio next door via Jack Kerouac Alley, then walk the espresso-and-focaccia blocks of North Beach.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "261 Columbus Ave. Pair with a cannoli from Stella and a bench in Washington Square."
+      },
+      "tags": ["bookstore", "walk", "history", "literary", "coffee"],
+      "pairsWith": ["dim-sum-chinatown", "musee-mecanique"]
+    },
+    {
+      "id": "live-music-venues",
+      "name": "Live Music at The Chapel / GAMH / Fillmore",
+      "category": "Arts & culture",
+      "neighborhood": "Mission / Fillmore",
+      "description": "Catch a show at one of SF's great mid-size rooms — The Chapel (a converted mortuary), the ornate Great American Music Hall, or the historic Fillmore (free apples and a poster on the way out).",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "required",
+        "dogFriendly": false,
+        "gettingThere": "Buy tickets in advance. The Chapel and GAMH have attached restaurants for dinner-and-a-show."
+      },
+      "tags": ["live-music", "concert", "date-night", "evening"],
+      "pairsWith": ["trick-dog"]
+    },
+    {
+      "id": "musee-mecanique",
+      "name": "Musée Mécanique",
+      "category": "Arts & culture",
+      "neighborhood": "Fisherman's Wharf / Pier 45",
+      "description": "A free-to-enter warehouse of 300+ working antique arcade machines — hand-cranked dioramas, fortune tellers, and old strength testers. Bring a roll of quarters and play everything.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Pier 45, Fisherman's Wharf. Free entry; bring quarters (change machines on site)."
+      },
+      "tags": ["arcade", "vintage", "free-entry", "playful", "rainy-day"],
+      "pairsWith": ["city-lights", "hyde-street-pier"]
+    },
+    {
+      "id": "kayak-mission-creek",
+      "name": "Kayaking Mission Creek / McCovey Cove",
+      "category": "Playful & active",
+      "neighborhood": "Mission Bay",
+      "description": "Paddle a tandem kayak through the houseboat-lined channel and out toward the ballpark's McCovey Cove. Calm water, a totally different angle on the city, and resident harbor seals.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "City Kayak near the ballpark; T-Third to the stadium. Book tandem kayaks ahead."
+      },
+      "tags": ["kayak", "water", "active", "unique"],
+      "pairsWith": []
+    },
+    {
+      "id": "bike-bridge-sausalito",
+      "name": "Bike the Golden Gate to Sausalito",
+      "category": "Playful & active",
+      "neighborhood": "Marina → Sausalito",
+      "description": "Rent bikes, ride across the Golden Gate Bridge, coast downhill into Sausalito for lunch and ice cream, then ferry back with the bikes as the sun sets. A perfect big-day loop.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "full-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Rentals near Fisherman's Wharf or the Marina. Reserve a bike-ferry spot back; it fills up."
+      },
+      "tags": ["bike", "bridge", "ferry", "day-trip", "iconic"],
+      "pairsWith": ["crissy-field", "ferry-building"]
+    },
+    {
+      "id": "urban-putt",
+      "name": "Urban Putt Indoor Mini Golf",
+      "category": "Playful & active",
+      "neighborhood": "Mission",
+      "description": "A dark, whimsical 14-hole indoor mini-golf course full of kinetic Rube-Goldberg contraptions, plus a full bar and restaurant. Competitive, silly, and great on a foggy night.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "1096 South Van Ness. Reserve a tee time on weekends; 21+ after certain hours."
+      },
+      "tags": ["mini-golf", "bar", "playful", "rainy-day", "date-night"],
+      "pairsWith": ["trick-dog", "mission-burrito-crawl"]
+    },
+    {
+      "id": "church-of-8-wheels",
+      "name": "Roller Disco at Church of 8 Wheels",
+      "category": "Playful & active",
+      "neighborhood": "NoPa / Fillmore",
+      "description": "Skate under disco lights inside a repurposed church with a DJ spinning funk and soul. Rentals available, zero skill required, maximum joy. Also: free 'Skatin' Place' in GG Park on Sundays.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "554 Fillmore St. Cash/card at the door; skate rentals included. Check nights/hours."
+      },
+      "tags": ["roller-skating", "disco", "playful", "date-night"],
+      "pairsWith": []
+    },
+    {
+      "id": "dogpatch-boulders",
+      "name": "Indoor Climbing at Dogpatch Boulders",
+      "category": "Playful & active",
+      "neighborhood": "Dogpatch",
+      "description": "A big, friendly bouldering gym — no ropes, no experience needed. Belay-free climbing you can do side by side, then split a beer at a nearby taproom. Great rainy-day energy-burner.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "2573 Third St. Day pass + shoe rental for first-timers; T-Third light rail."
+      },
+      "tags": ["climbing", "active", "rainy-day", "beginner-friendly"],
+      "pairsWith": ["brewery-taproom"]
+    },
+    {
+      "id": "cable-car-lombard",
+      "name": "Cable Car Ride + Lombard Street",
+      "category": "Playful & active",
+      "neighborhood": "Russian Hill / Nob Hill",
+      "description": "Hang off a rattling cable car up Hyde St, hop off to walk down the flower-lined crooked block of Lombard, and take in the bay-and-Alcatraz view from the top. Touristy on purpose, still a blast.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Powell-Hyde line. Buy a Muni day pass to skip the single-ride cost. Board at a mid-route stop to avoid the terminal line."
+      },
+      "tags": ["cable-car", "classic", "views", "walk"],
+      "pairsWith": ["tonga-room", "city-lights"]
+    },
+    {
+      "id": "lindy-in-the-park",
+      "name": "Lindy in the Park (Free Swing Dancing)",
+      "category": "Playful & active",
+      "neighborhood": "Golden Gate Park",
+      "description": "Free outdoor swing dancing every Sunday on JFK Drive, with a beginner lesson to start. No partner or experience needed — just show up and get spun around on a car-free promenade.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "quick",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "JFK Promenade near the de Young. Sundays ~11am–2pm; free lesson at the start."
+      },
+      "tags": ["dancing", "free", "playful", "beginner-friendly", "sunday"],
+      "pairsWith": ["de-young", "stow-lake-boats"]
+    },
+    {
+      "id": "emporium-arcade-bar",
+      "name": "Emporium Arcade Bar",
+      "category": "Playful & active",
+      "neighborhood": "Mission",
+      "description": "A cavernous barcade with classic pinball, cabinet games, skee-ball, and a full bar. Load up a game card, get competitive, and settle scores over cocktails. Rainy-night proof.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "616 Divisadero (also a Mission location). 21+ in the evenings."
+      },
+      "tags": ["arcade", "bar", "games", "rainy-day", "playful"],
+      "pairsWith": ["church-of-8-wheels"]
+    },
+    {
+      "id": "dolores-park",
+      "name": "Dolores Park Hang",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Mission / Dolores",
+      "description": "SF's ultimate sunny-day living room — bring a blanket, snacks, and drinks, claim a spot on the sloped lawn (the 'gay beach' side has the best sun and skyline view), and watch the whole city show up.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "half-day",
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "18th & Dolores; J-Church stops at the park. Restrooms on site. Roving vendors sell drinks and treats."
+      },
+      "tags": ["park", "picnic", "people-watching", "sunny-day", "free"],
+      "pairsWith": ["bi-rite-creamery", "mission-burrito-crawl"]
+    }
+  ]
+}

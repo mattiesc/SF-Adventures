@@ -2,7 +2,7 @@
   "meta": {
     "title": "SF Adventures",
     "description": "A catalog of San Francisco adventures for two. Source of truth for the app.",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "lastUpdated": "2026-07-18",
     "legend": {
       "cost": {
@@ -47,7 +47,8 @@
         "ids of nearby activities that combine well"
       ],
       "durationRank": "1 (~1hr) | 2 (~4hr) | 3 (all-day) — for sorting/filtering by time",
-      "nearHome": "boolean — within easy reach of home (Pac Heights / Polk Gulch orbit)"
+      "nearHome": "boolean — within easy reach of home (Pac Heights / Polk Gulch orbit)",
+      "stops": "for crawls: ordered array of {name, note} stops along the route"
     },
     "homeZone": {
       "note": "Home base is Pacific Heights, near Polk Gulch. 'Near home' = walkable or a short hop.",
@@ -1927,6 +1928,332 @@
       "pairsWith": [
         "cable-car-lombard",
         "swan-oyster-depot"
+      ],
+      "nearHome": true
+    },
+    {
+      "id": "north-beach-pizza-crawl",
+      "name": "North Beach Pizza & Slice Crawl",
+      "category": "Food & drink",
+      "neighborhood": "North Beach",
+      "description": "Work through three styles in a few walkable blocks of Little Italy — a textbook Neapolitan, a legendary square slice, and a wood-fired pie with a Negroni. Come hungry and split everything.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "All within ~5 blocks of Washington Square. Tony's takes reservations; the slice stops are cash-friendly walk-ups."
+      },
+      "tags": [
+        "pizza",
+        "italian",
+        "date-night",
+        "crawl"
+      ],
+      "stops": [
+        {
+          "name": "Tony's Pizza Napoletana (1570 Stockton)",
+          "note": "Start with the Margherita — they make a limited number a day."
+        },
+        {
+          "name": "Golden Boy Pizza (542 Green St)",
+          "note": "A square of clam-and-garlic Sicilian focaccia slice, cash, eat standing up."
+        },
+        {
+          "name": "Il Casaro (348 Columbus)",
+          "note": "Finish with a wood-fired pie and a Negroni."
+        }
+      ],
+      "pairsWith": [
+        "city-lights"
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "mission-taco-crawl",
+      "name": "Mission Taco Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Mission",
+      "description": "A taco tour of the taquería capital — a crispy taco dorado, al pastor shaved off the spinning trompo, and a stop at a serious salsa bar. Cheap, legendary, and endlessly debatable.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "Strung along Mission & 24th; 24th St BART anchors it. Bring cash and an appetite."
+      },
+      "tags": [
+        "tacos",
+        "mexican",
+        "cheap",
+        "iconic",
+        "crawl"
+      ],
+      "stops": [
+        {
+          "name": "La Taqueria (2889 Mission)",
+          "note": "The carnitas taco dorado (crisped-up). Cash only, expect a line."
+        },
+        {
+          "name": "Taqueria Vallarta (3033 24th St)",
+          "note": "Al pastor carved off the trompo; taco truck out back at night."
+        },
+        {
+          "name": "El Farolito (2779 Mission)",
+          "note": "Super quesadilla suiza — the classic late-night close-out."
+        },
+        {
+          "name": "El Toro (598 Valencia)",
+          "note": "Load up at one of the city's best salsa bars."
+        }
+      ],
+      "pairsWith": [
+        "dolores-park",
+        "bi-rite-creamery"
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "chinatown-dim-sum-crawl",
+      "name": "Chinatown Dim Sum Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Chinatown",
+      "description": "Assemble a pillowy feast from tiny to-go bakeries, sit down at America's oldest dim sum house, then picnic your haul on a Portsmouth Square bench among the mahjong players. Late-morning is prime time.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "All walkable in Chinatown; go before noon to beat the lines. Bakeries are cash-first."
+      },
+      "tags": [
+        "dim-sum",
+        "chinese",
+        "cheap",
+        "walk",
+        "crawl"
+      ],
+      "stops": [
+        {
+          "name": "Good Mong Kok Bakery (1039 Stockton)",
+          "note": "Char siu bao and pillowy pineapple buns to-go. Cash, line out the door."
+        },
+        {
+          "name": "Hang Ah Tea Room (1 Pagoda Pl)",
+          "note": "Sit down at America's first-ever dim sum house (since 1920)."
+        },
+        {
+          "name": "Wong Lee Bakery (Stockton St)",
+          "note": "Ho fun, pea-sprout shrimp dumplings, fried taro puffs."
+        },
+        {
+          "name": "Portsmouth Square",
+          "note": "Spread your haul on a bench and watch the neighborhood."
+        }
+      ],
+      "pairsWith": [
+        "city-lights",
+        "musee-mecanique"
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "sf-ice-cream-crawl",
+      "name": "Mission Ice Cream Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Mission",
+      "description": "Three scoops, three personalities, all within a few Mission blocks — the beloved classic, the funky bourbon-cornflake cult flavor, and a plant-based Asian-inspired scoop. Best split so you can taste everything.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "All within ~6 blocks; weave in a Dolores Park sit-down. Lines move fast."
+      },
+      "tags": [
+        "ice-cream",
+        "dessert",
+        "cheap",
+        "sunny-day",
+        "crawl"
+      ],
+      "stops": [
+        {
+          "name": "Bi-Rite Creamery (3692 18th St)",
+          "note": "The salted caramel that made them famous."
+        },
+        {
+          "name": "Humphry Slocombe (2790 Harrison)",
+          "note": "Secret Breakfast — bourbon ice cream with cornflakes."
+        },
+        {
+          "name": "Garden Creamery (3566 20th St)",
+          "note": "Vietnamese coffee and ube, with great vegan scoops."
+        }
+      ],
+      "pairsWith": [
+        "dolores-park",
+        "mission-taco-crawl"
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "north-beach-italian-crawl",
+      "name": "North Beach Italian Espresso & Sweets Crawl",
+      "category": "Food & drink",
+      "neighborhood": "North Beach",
+      "description": "The old-world Little Italy ritual: a proper espresso where the Beats hung out, a cannoli, still-warm focaccia from a 100-year-old bakery, then a Molinari sandwich for the road. Deeply romantic and mostly under $10 a stop.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "All around Columbus & Washington Square. Liguria sells out by early afternoon — hit it first."
+      },
+      "tags": [
+        "italian",
+        "coffee",
+        "pastry",
+        "walk",
+        "romantic",
+        "crawl"
+      ],
+      "stops": [
+        {
+          "name": "Caffe Trieste (601 Vallejo)",
+          "note": "Espresso in the cafe where Coppola wrote The Godfather script."
+        },
+        {
+          "name": "Stella Pastry (446 Columbus)",
+          "note": "A cannoli or a slice of sacripantina."
+        },
+        {
+          "name": "Liguria Bakery (1700 Stockton)",
+          "note": "Focaccia only, cash only, sells out early — the real deal."
+        },
+        {
+          "name": "Molinari Deli (373 Columbus)",
+          "note": "A monster Italian sub to carry to Washington Square."
+        }
+      ],
+      "pairsWith": [
+        "city-lights"
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "polk-nob-bar-crawl",
+      "name": "Polk Gulch & Nob Hill Bar Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Polk Gulch / Nob Hill",
+      "description": "A near-home progression from cozy to rowdy to ridiculous: a French wine flight, das boot at an Austrian beer hall, then a nightcap in a tiki lagoon with an indoor thunderstorm. All within a short walk or hop.",
+      "cost": "$$$",
+      "costLevel": 3,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "Amelie and Leopold's are a block apart on Polk; cab or cable-car up to the Fairmont for the Tonga Room finale."
+      },
+      "tags": [
+        "cocktails",
+        "wine",
+        "beer",
+        "date-night",
+        "tiki",
+        "crawl",
+        "near-home"
+      ],
+      "stops": [
+        {
+          "name": "Amelie Wine Bar (1754 Polk)",
+          "note": "Start cozy with the great-value three-pour flight."
+        },
+        {
+          "name": "Leopold's (2400 Polk)",
+          "note": "Order 'das boot' — a two-liter glass boot of lager."
+        },
+        {
+          "name": "Tonga Room (Fairmont, Nob Hill)",
+          "note": "Nightcap in the tiki lagoon; wait for the rainstorm."
+        }
+      ],
+      "pairsWith": [
+        "swan-oyster-depot",
+        "cable-car-lombard"
+      ],
+      "nearHome": true
+    },
+    {
+      "id": "fillmore-bakery-crawl",
+      "name": "Fillmore Bakery & Pastry Crawl",
+      "category": "Food & drink",
+      "neighborhood": "Pacific Heights / Fillmore",
+      "description": "A sweet, near-home morning down Fillmore — a flaky kouign-amann, a classic French bakery, a laptop-friendly cafe, and boiled bagels good enough to impress a New Yorker. Walk it off with Alta Plaza Park at the end.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": false,
+        "gettingThere": "A straight shot down Fillmore, all walkable from home."
+      },
+      "tags": [
+        "pastry",
+        "coffee",
+        "bagels",
+        "walk",
+        "local",
+        "crawl",
+        "near-home"
+      ],
+      "stops": [
+        {
+          "name": "b. Patisserie (2821 California)",
+          "note": "The kouign-amann is the whole reason to come."
+        },
+        {
+          "name": "La Boulangerie (2043 Fillmore)",
+          "note": "Classic French bakery — croissants and a canele."
+        },
+        {
+          "name": "Jane on Fillmore (2123 Fillmore)",
+          "note": "A toast or quinoa bowl and a good flat white."
+        },
+        {
+          "name": "Wise Sons Bagel (1520 Fillmore)",
+          "note": "Boiled bagels and babka to take home."
+        }
+      ],
+      "pairsWith": [
+        "alta-plaza-park",
+        "fillmore-coffee-pastry"
       ],
       "nearHome": true
     }

@@ -2,7 +2,7 @@
   "meta": {
     "title": "SF Adventures",
     "description": "A catalog of San Francisco adventures for two. Source of truth for the app.",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "lastUpdated": "2026-07-18",
     "legend": {
       "cost": {
@@ -46,7 +46,22 @@
       "pairsWith": [
         "ids of nearby activities that combine well"
       ],
-      "durationRank": "1 (~1hr) | 2 (~4hr) | 3 (all-day) — for sorting/filtering by time"
+      "durationRank": "1 (~1hr) | 2 (~4hr) | 3 (all-day) — for sorting/filtering by time",
+      "nearHome": "boolean — within easy reach of home (Pac Heights / Polk Gulch orbit)"
+    },
+    "homeZone": {
+      "note": "Home base is Pacific Heights, near Polk Gulch. 'Near home' = walkable or a short hop.",
+      "neighborhoods": [
+        "Pacific Heights",
+        "Polk Gulch",
+        "Nob Hill",
+        "Russian Hill",
+        "Van Ness",
+        "Japantown",
+        "Fillmore",
+        "Marina",
+        "Cow Hollow"
+      ]
     }
   },
   "activities": [
@@ -77,7 +92,8 @@
         "legion-of-honor",
         "sutro-baths"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "sutro-baths",
@@ -104,7 +120,8 @@
       "pairsWith": [
         "lands-end-trail"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "twin-peaks-sunset",
@@ -131,7 +148,8 @@
       "pairsWith": [
         "corona-heights"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "tiled-steps",
@@ -159,7 +177,8 @@
       "pairsWith": [
         "andytown-coffee"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "presidio-tunnel-tops",
@@ -187,7 +206,8 @@
         "andy-goldsworthy",
         "crissy-field"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "andy-goldsworthy",
@@ -214,7 +234,8 @@
       "pairsWith": [
         "presidio-tunnel-tops"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "crissy-field",
@@ -236,13 +257,15 @@
         "walk",
         "waterfront",
         "bridge",
-        "easy"
+        "easy",
+        "near-home"
       ],
       "pairsWith": [
         "presidio-tunnel-tops",
         "off-the-grid"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": true
     },
     {
       "id": "corona-heights",
@@ -270,7 +293,8 @@
         "twin-peaks-sunset",
         "castro-theatre"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "angel-island",
@@ -298,7 +322,8 @@
       "pairsWith": [
         "ferry-building"
       ],
-      "durationRank": 3
+      "durationRank": 3,
+      "nearHome": false
     },
     {
       "id": "ocean-beach-bonfire",
@@ -326,7 +351,8 @@
       "pairsWith": [
         "outer-sunset-crawl"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "bernal-hill",
@@ -354,7 +380,8 @@
       "pairsWith": [
         "mission-burrito-crawl"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "stow-lake-boats",
@@ -383,7 +410,8 @@
         "de-young",
         "japanese-tea-garden"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "japanese-tea-garden",
@@ -411,7 +439,8 @@
         "de-young",
         "stow-lake-boats"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "glen-canyon",
@@ -436,7 +465,8 @@
         "climbing"
       ],
       "pairsWith": [],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "ferry-building",
@@ -465,7 +495,8 @@
         "angel-island",
         "embarcadero-walk"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "swan-oyster-depot",
@@ -487,10 +518,12 @@
         "seafood",
         "iconic",
         "counter",
-        "lunch"
+        "lunch",
+        "near-home"
       ],
       "pairsWith": [],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": true
     },
     {
       "id": "mission-burrito-crawl",
@@ -519,7 +552,8 @@
         "bi-rite-creamery",
         "bernal-hill"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "tonga-room",
@@ -542,12 +576,14 @@
         "cocktails",
         "kitsch",
         "date-night",
-        "iconic"
+        "iconic",
+        "near-home"
       ],
       "pairsWith": [
         "cable-car-lombard"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": true
     },
     {
       "id": "trick-dog",
@@ -575,7 +611,8 @@
         "mission-burrito-crawl",
         "urban-putt"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "dim-sum-chinatown",
@@ -603,7 +640,8 @@
         "city-lights",
         "musee-mecanique"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "off-the-grid",
@@ -626,12 +664,14 @@
         "waterfront",
         "casual",
         "variety",
-        "evening"
+        "evening",
+        "near-home"
       ],
       "pairsWith": [
         "crissy-field"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": true
     },
     {
       "id": "bi-rite-creamery",
@@ -659,7 +699,8 @@
         "mission-burrito-crawl",
         "dolores-park"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "andytown-coffee",
@@ -687,7 +728,8 @@
         "ocean-beach-bonfire",
         "tiled-steps"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "brewery-taproom",
@@ -715,7 +757,8 @@
         "dogpatch-boulders",
         "museum-of-craft"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "de-young",
@@ -744,7 +787,8 @@
         "stow-lake-boats",
         "cal-academy"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "cal-academy",
@@ -772,7 +816,8 @@
       "pairsWith": [
         "de-young"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "exploratorium-after-dark",
@@ -801,7 +846,8 @@
         "ferry-building",
         "embarcadero-walk"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "sfmoma",
@@ -829,7 +875,8 @@
         "yerba-buena",
         "trick-dog"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "legion-of-honor",
@@ -857,7 +904,8 @@
         "lands-end-trail",
         "sutro-baths"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "castro-theatre",
@@ -886,7 +934,8 @@
         "corona-heights",
         "mission-burrito-crawl"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "city-lights",
@@ -915,7 +964,8 @@
         "dim-sum-chinatown",
         "musee-mecanique"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "live-music-venues",
@@ -937,12 +987,14 @@
         "live-music",
         "concert",
         "date-night",
-        "evening"
+        "evening",
+        "near-home"
       ],
       "pairsWith": [
         "trick-dog"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": true
     },
     {
       "id": "musee-mecanique",
@@ -971,7 +1023,8 @@
         "city-lights",
         "hyde-street-pier"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "kayak-mission-creek",
@@ -996,7 +1049,8 @@
         "unique"
       ],
       "pairsWith": [],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "bike-bridge-sausalito",
@@ -1025,7 +1079,8 @@
         "crissy-field",
         "ferry-building"
       ],
-      "durationRank": 3
+      "durationRank": 3,
+      "nearHome": false
     },
     {
       "id": "urban-putt",
@@ -1054,7 +1109,8 @@
         "trick-dog",
         "mission-burrito-crawl"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "church-of-8-wheels",
@@ -1076,10 +1132,12 @@
         "roller-skating",
         "disco",
         "playful",
-        "date-night"
+        "date-night",
+        "near-home"
       ],
       "pairsWith": [],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": true
     },
     {
       "id": "dogpatch-boulders",
@@ -1106,7 +1164,8 @@
       "pairsWith": [
         "brewery-taproom"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "cable-car-lombard",
@@ -1128,13 +1187,15 @@
         "cable-car",
         "classic",
         "views",
-        "walk"
+        "walk",
+        "near-home"
       ],
       "pairsWith": [
         "tonga-room",
         "city-lights"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": true
     },
     {
       "id": "lindy-in-the-park",
@@ -1163,7 +1224,8 @@
         "de-young",
         "stow-lake-boats"
       ],
-      "durationRank": 1
+      "durationRank": 1,
+      "nearHome": false
     },
     {
       "id": "emporium-arcade-bar",
@@ -1191,7 +1253,8 @@
       "pairsWith": [
         "church-of-8-wheels"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "dolores-park",
@@ -1220,7 +1283,8 @@
         "bi-rite-creamery",
         "mission-burrito-crawl"
       ],
-      "durationRank": 2
+      "durationRank": 2,
+      "nearHome": false
     },
     {
       "id": "lyon-street-steps",
@@ -1244,12 +1308,14 @@
         "views",
         "walk",
         "local",
-        "workout"
+        "workout",
+        "near-home"
       ],
       "pairsWith": [
         "alta-plaza-park",
         "palace-of-fine-arts"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "alta-plaza-park",
@@ -1273,13 +1339,15 @@
         "views",
         "dogs",
         "picnic",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "jane-on-fillmore",
         "b-patisserie",
         "lafayette-park"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "lafayette-park",
@@ -1303,11 +1371,13 @@
         "picnic",
         "dogs",
         "relaxed",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "alta-plaza-park"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "fillmore-coffee-pastry",
@@ -1332,12 +1402,14 @@
         "walk",
         "cheap",
         "local",
-        "shopping"
+        "shopping",
+        "near-home"
       ],
       "pairsWith": [
         "alta-plaza-park",
         "spqr"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "spqr",
@@ -1361,13 +1433,15 @@
         "italian",
         "date-night",
         "walkable",
-        "acclaimed"
+        "acclaimed",
+        "near-home"
       ],
       "pairsWith": [
         "fillmore-coffee-pastry",
         "the-snug",
         "live-music-venues"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "the-snug",
@@ -1391,12 +1465,14 @@
         "gastropub",
         "casual",
         "local",
-        "date-night"
+        "date-night",
+        "near-home"
       ],
       "pairsWith": [
         "spqr",
         "woodhouse-fish"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "woodhouse-fish",
@@ -1419,12 +1495,14 @@
         "seafood",
         "lobster-roll",
         "casual",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "spqr",
         "the-snug"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "sweet-maple-brunch",
@@ -1447,11 +1525,13 @@
         "brunch",
         "breakfast",
         "iconic",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "fillmore-coffee-pastry"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "state-bird-provisions",
@@ -1475,11 +1555,13 @@
         "tasting",
         "acclaimed",
         "date-night",
-        "creative"
+        "creative",
+        "near-home"
       ],
       "pairsWith": [
         "live-music-venues"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "kabuki-springs",
@@ -1503,12 +1585,14 @@
         "baths",
         "relaxing",
         "wellness",
-        "date-night"
+        "date-night",
+        "near-home"
       ],
       "pairsWith": [
         "japantown-wander",
         "marufuku-ramen"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "japantown-wander",
@@ -1533,12 +1617,14 @@
         "photo-booth",
         "playful",
         "rainy-day",
-        "cheap"
+        "cheap",
+        "near-home"
       ],
       "pairsWith": [
         "marufuku-ramen",
         "kabuki-springs"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "marufuku-ramen",
@@ -1561,12 +1647,14 @@
         "ramen",
         "japanese",
         "casual",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "japantown-wander",
         "kabuki-springs"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "palace-of-fine-arts",
@@ -1591,13 +1679,15 @@
         "walk",
         "romantic",
         "free",
-        "local"
+        "local",
+        "near-home"
       ],
       "pairsWith": [
         "lyon-street-steps",
         "wave-organ",
         "off-the-grid"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "wave-organ",
@@ -1621,12 +1711,14 @@
         "views",
         "hidden-gem",
         "free",
-        "walk"
+        "walk",
+        "near-home"
       ],
       "pairsWith": [
         "palace-of-fine-arts",
         "crissy-field"
-      ]
+      ],
+      "nearHome": true
     },
     {
       "id": "house-of-prime-rib",
@@ -1650,9 +1742,11 @@
         "prime-rib",
         "iconic",
         "classic",
-        "date-night"
+        "date-night",
+        "near-home"
       ],
-      "pairsWith": []
+      "pairsWith": [],
+      "nearHome": true
     },
     {
       "id": "berber-supper-club",
@@ -1680,7 +1774,161 @@
       ],
       "pairsWith": [
         "live-music-venues"
-      ]
+      ],
+      "nearHome": false
+    },
+    {
+      "id": "polk-coffee-donuts",
+      "name": "Polk Street Coffee & Bob's Donuts",
+      "category": "Food & drink",
+      "neighborhood": "Polk Gulch",
+      "description": "A quick, joyful Polk Gulch morning: snag a warm apple fritter or a classic glazed from Bob's Donuts — a 24-hour neighborhood institution — and a proper flat white from a Polk St roaster, then wander the strip's shops. Zero effort, maximum charm.",
+      "cost": "$",
+      "costLevel": 1,
+      "duration": "1hr",
+      "durationRank": 1,
+      "logistics": {
+        "indoorOutdoor": "mixed",
+        "weatherDependent": false,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Bob's Donuts, 1621 Polk St — cash-friendly, open 24 hours. Specialty coffee within a block."
+      },
+      "tags": [
+        "coffee",
+        "donuts",
+        "cheap",
+        "quick",
+        "local",
+        "near-home"
+      ],
+      "pairsWith": [
+        "swan-oyster-depot",
+        "macondray-lane"
+      ],
+      "nearHome": true
+    },
+    {
+      "id": "leopolds",
+      "name": "Leopold's Austrian Tavern",
+      "category": "Food & drink",
+      "neighborhood": "Polk Gulch / Russian Hill",
+      "description": "A boisterous alpine beer hall on the Russian Hill edge of Polk — order 'das boot' (a two-liter glass boot of lager), schnitzel and spätzle, and toast with the whole room when the accordion kicks in. Loud, communal, and a blast.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "2400 Polk St. Reserve for weekend evenings; it fills up and gets rowdy (in the best way)."
+      },
+      "tags": [
+        "beer",
+        "austrian",
+        "lively",
+        "group-fun",
+        "date-night",
+        "near-home"
+      ],
+      "pairsWith": [
+        "amelie-wine-bar",
+        "swan-oyster-depot"
+      ],
+      "nearHome": true
+    },
+    {
+      "id": "amelie-wine-bar",
+      "name": "Amélie Wine Bar",
+      "category": "Food & drink",
+      "neighborhood": "Polk Gulch",
+      "description": "A cozy, candlelit French wine bar on Polk with a genuinely great-value flight of three pours plus a cheese-and-charcuterie board. The easy, romantic answer for a mid-week date a few blocks from home.",
+      "cost": "$$",
+      "costLevel": 2,
+      "duration": "1hr",
+      "durationRank": 1,
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "recommended",
+        "dogFriendly": false,
+        "gettingThere": "1754 Polk St. Small room — reserve, or come early for the happy-hour flight."
+      },
+      "tags": [
+        "wine",
+        "romantic",
+        "cozy",
+        "date-night",
+        "local",
+        "near-home"
+      ],
+      "pairsWith": [
+        "leopolds",
+        "swan-oyster-depot"
+      ],
+      "nearHome": true
+    },
+    {
+      "id": "acquerello",
+      "name": "Acquerello",
+      "category": "Food & drink",
+      "neighborhood": "Polk Gulch / Nob Hill",
+      "description": "The special-occasion splurge right in the neighborhood — a two-Michelin-star Italian tasting menu inside a converted chapel, quietly elegant and impeccably served. Save it for an anniversary.",
+      "cost": "$$$$",
+      "costLevel": 4,
+      "duration": "4hr",
+      "durationRank": 2,
+      "logistics": {
+        "indoorOutdoor": "indoor",
+        "weatherDependent": false,
+        "reservation": "required",
+        "dogFriendly": false,
+        "gettingThere": "1722 Sacramento St, just off Polk. Jackets appreciated; book well ahead."
+      },
+      "tags": [
+        "fine-dining",
+        "italian",
+        "special-occasion",
+        "date-night",
+        "acclaimed",
+        "near-home"
+      ],
+      "pairsWith": [],
+      "nearHome": true
+    },
+    {
+      "id": "macondray-lane",
+      "name": "Macondray Lane & Ina Coolbrith Park",
+      "category": "Outdoorsy & scenic",
+      "neighborhood": "Russian Hill",
+      "description": "A hidden two-block garden footpath — wooden stairs, brick cottages, and overhanging greenery that inspired 'Barbary Lane' in Tales of the City — climbing to tiny, terraced Ina Coolbrith Park and a surprise Coit-Tower-and-bay view. A secret, romantic half-hour.",
+      "cost": "Free",
+      "costLevel": 0,
+      "duration": "1hr",
+      "durationRank": 1,
+      "logistics": {
+        "indoorOutdoor": "outdoor",
+        "weatherDependent": true,
+        "reservation": "none",
+        "dogFriendly": true,
+        "gettingThere": "Enter Macondray Lane off Taylor or Jones between Union & Green — a short uphill walk from Polk Gulch."
+      },
+      "tags": [
+        "hidden-gem",
+        "walk",
+        "stairs",
+        "views",
+        "romantic",
+        "free",
+        "near-home"
+      ],
+      "pairsWith": [
+        "cable-car-lombard",
+        "swan-oyster-depot"
+      ],
+      "nearHome": true
     }
   ]
 }

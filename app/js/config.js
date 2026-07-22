@@ -8,13 +8,12 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const firebaseConfig = {
-  apiKey: "PASTE_ME",
-  authDomain: "PASTE_ME",        // e.g. sf-adventures-xxxx.firebaseapp.com
-  projectId: "PASTE_ME",         // e.g. sf-adventures-xxxx
-  appId: "PASTE_ME",
-  // These two are optional for this app but Firebase usually gives them to you:
-  storageBucket: "",
-  messagingSenderId: "",
+  apiKey: "AIzaSyA06rCCHAHWfWToowKrFVMtD8D2mEYko24",
+  authDomain: "sf-adventures-eb199.firebaseapp.com",
+  projectId: "sf-adventures-eb199",
+  appId: "1:810201582362:web:9fbcdfd089631bdeb77aa3",
+  storageBucket: "sf-adventures-eb199.firebasestorage.app",
+  messagingSenderId: "810201582362",
 };
 
 // True when the config above still has placeholders → run in local-only mode.

@@ -60,6 +60,8 @@ function renderBanner() {
   } else if (auth.status === "ready") {
     const n = auth.household ? auth.household.members.length : 0;
     b.innerHTML = `<span class="dot ok"></span> Synced${auth.user ? " as " + esc(auth.user.email) : ""} · ${n} in your deck`;
+  } else if (auth.status === "error") {
+    b.innerHTML = `<span class="dot warn"></span> ${esc(auth.error || "Something went wrong")} · <a href="#" data-goto="settings">Settings</a>`;
   } else {
     b.innerHTML = `<span class="dot"></span> Connecting…`;
   }
@@ -225,26 +227,22 @@ function paintGrid() {
 // ── SETTINGS ───────────────────────────────────────────────────────────────────
 function renderSettings(m) {
   const local = store && store.mode === "local";
+  const errBox = auth.error ? `<div class="panel danger"><h3>Heads up</h3><p class="muted">${esc(auth.error)}</p><p class="muted small">Try again below. If it keeps happening, screenshot this and send it over.</p></div>` : "";
   let body;
   if (local) {
     body = `<div class="panel">
       <h3>Local mode</h3>
       <p class="muted">This device is saving its own deck. To share one live deck with Caleb, add your Firebase settings in <code>app/js/config.js</code> and redeploy — see <b>SETUP.md</b>.</p>
     </div>`;
-  } else if (auth.status === "signed-out" || auth.status === "signing-in") {
+  } else if (!auth.user) {
     body = `<div class="panel">
       <h3>Sign in</h3>
       <p class="muted">Sign in with the Google account you want on the shared deck.</p>
       <button class="primary" id="signin">Sign in with Google</button>
     </div>`;
-  } else if (auth.status === "no-household") {
-    body = `<div class="panel">
-      <h3>Create your shared deck</h3>
-      <p class="muted">Signed in as ${esc(auth.user.email)}. Create the deck, then add Caleb's email so it syncs to you both.</p>
-      <button class="primary" id="createhh">Create our deck</button>
-      <button class="ghost" id="signout">Sign out</button>
-    </div>`;
-  } else if (auth.status === "ready") {
+  } else if (auth.status === "signing-in") {
+    body = `<div class="panel"><p class="muted">Signing you in…</p></div>`;
+  } else if (auth.household) {
     const mem = (auth.household.members || []).map((e) => `<li>${esc(e)}</li>`).join("");
     body = `<div class="panel">
       <h3>Your shared deck</h3>
@@ -260,9 +258,14 @@ function renderSettings(m) {
       <button class="ghost" id="signout">Sign out</button>
     </div>`;
   } else {
-    body = `<div class="panel"><p class="muted">Connecting…</p></div>`;
+    body = `<div class="panel">
+      <h3>Create your shared deck</h3>
+      <p class="muted">Signed in as ${esc(auth.user.email)}. Create the deck, then add Caleb's email so it syncs to you both.</p>
+      <button class="primary" id="createhh">Create our deck</button>
+      <button class="ghost" id="signout">Sign out</button>
+    </div>`;
   }
-  m.innerHTML = `<h1 class="browse-title">Settings</h1>${body}
+  m.innerHTML = `<h1 class="browse-title">Settings</h1>${errBox}${body}
     <div class="panel danger">
       <h3>Reset the deck</h3>
       <p class="muted">Clears all cooldowns and history${local ? " on this device" : " for everyone on the deck"}.</p>

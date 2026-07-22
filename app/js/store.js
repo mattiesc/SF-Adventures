@@ -52,7 +52,8 @@ async function FirebaseStore() {
     import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"),
   ]);
   const {
-    getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged,
+    getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
+    getRedirectResult, signOut, onAuthStateChanged,
   } = authMod;
   const {
     getFirestore, collection, query, where, getDocs, doc, getDoc, setDoc,
@@ -67,11 +68,13 @@ async function FirebaseStore() {
   let user = null;
   let household = null;      // { id, members }
   let unsubDoc = null;
+  let lastError = null;
   const dataSubs = new Set();
   const authSubs = new Set();
 
   const emitData = () => dataSubs.forEach((cb) => cb(state));
-  const emitAuth = (status) => authSubs.forEach((cb) => cb({ status, user, household }));
+  const emitAuth = (status) => authSubs.forEach((cb) => cb({ status, user, household, error: lastError }));
+  const fail = (msg) => { lastError = msg; emitAuth("error"); };
 
   function watchHousehold(id) {
     if (unsubDoc) unsubDoc();
@@ -79,8 +82,11 @@ async function FirebaseStore() {
       const d = snap.data() || {};
       state = { deck: d.deck || {}, log: d.log || [] };
       household = { id, members: d.members || [] };
+      lastError = null;
       emitData();
       emitAuth("ready");
+    }, (err) => {
+      fail("Can't read the shared deck: " + (err.code || err.message));
     });
   }
 
@@ -95,28 +101,59 @@ async function FirebaseStore() {
     if (unsubDoc) { unsubDoc(); unsubDoc = null; }
     if (!user) { household = null; state = { deck: {}, log: [] }; emitData(); emitAuth("signed-out"); return; }
     emitAuth("signing-in");
-    const id = await findHousehold(user.email);
-    if (id) { watchHousehold(id); }
-    else { household = null; emitAuth("no-household"); }
+    try {
+      const id = await findHousehold(user.email);
+      if (id) { watchHousehold(id); }
+      else { household = null; lastError = null; emitAuth("no-household"); }
+    } catch (e) {
+      fail("Couldn't look up your deck: " + (e.code || e.message));
+    }
   });
 
   return {
     mode: "firebase",
     onChange(cb) { dataSubs.add(cb); cb(state); return () => dataSubs.delete(cb); },
     onAuth(cb) { authSubs.add(cb); cb({ status: user ? "ready" : "signed-out", user, household }); return () => authSubs.delete(cb); },
-    async init() {},
+    async init() {
+      // Complete any redirect-based sign-in started on a previous page load (mobile).
+      try { await getRedirectResult(auth); } catch (e) { /* ignore */ }
+    },
     async signIn() {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      provider.setCustomParameters({ prompt: "select_account" });
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (e) {
+        const code = e && e.code;
+        // On mobile browsers popups are often blocked/closed — fall back to redirect.
+        if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user" ||
+            code === "auth/cancelled-popup-request" || code === "auth/operation-not-supported-in-this-environment") {
+          await signInWithRedirect(auth, provider);
+        } else {
+          fail("Sign-in failed: " + (code || e.message));
+          throw e;
+        }
+      }
     },
     async signOut() { await signOut(auth); },
     async createHousehold() {
-      if (!user) throw new Error("Sign in first");
+      if (!user || !user.email) throw new Error("Please sign in with Google first.");
       const id = "hh_" + user.uid.slice(0, 10) + "_" + Math.random().toString(36).slice(2, 8);
-      await setDoc(doc(db, "households", id), {
-        members: [user.email], createdBy: user.email, createdAt: serverTimestamp(),
-        deck: {}, log: [],
-      });
+      try {
+        await setDoc(doc(db, "households", id), {
+          members: [user.email], createdBy: user.email, createdAt: serverTimestamp(),
+          deck: {}, log: [],
+        });
+      } catch (e) {
+        fail("Couldn't create the deck: " + (e.code || e.message));
+        throw e;
+      }
+      // Optimistically advance the UI even before the live listener catches up.
+      household = { id, members: [user.email] };
+      state = { deck: {}, log: [] };
+      lastError = null;
+      emitData();
+      emitAuth("ready");
       watchHousehold(id);
     },
     async addMember(email) {

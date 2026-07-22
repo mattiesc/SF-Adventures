@@ -1,6 +1,6 @@
 // Minimal service worker: makes the app installable and gives an offline shell.
 // Network-first for the app files so updates land quickly; falls back to cache offline.
-const CACHE = "sfadv-v4";
+const CACHE = "sfadv-v5";
 const CORE = [
   "./", "./index.html", "./styles.css", "./activities.json",
   "./js/app.js", "./js/deck.js", "./js/store.js", "./js/config.js",

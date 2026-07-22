@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // A household is the shared deck for one couple.
+    // Only signed-in users whose email is listed in `members` can read or write it.
+    match /households/{id} {
+
+      function isMember() {
+        return request.auth != null
+          && request.auth.token.email != null
+          && request.auth.token.email in resource.data.members;
+      }
+
+      // Reading / updating: you must already be a member.
+      allow read, update: if isMember();
+
+      // Creating: you must include yourself as a member of the new household.
+      allow create: if request.auth != null
+        && request.auth.token.email != null
+        && request.auth.token.email in request.resource.data.members;
+
+      // No deletes from the client.
+      allow delete: if false;
+    }
+  }
+}

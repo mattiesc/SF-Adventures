@@ -2,7 +2,7 @@
   "meta": {
     "title": "SF Adventures",
     "description": "A catalog of San Francisco adventures for two. Source of truth for the app.",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "lastUpdated": "2026-07-18",
     "legend": {
       "cost": {
@@ -70,7 +70,22 @@
     },
     "sources": [
       "Caleb's SF Fun Activities spreadsheet (merged)"
-    ]
+    ],
+    "deck": {
+      "note": "Cooldown deck: draw one card without replacement; it returns to the pool after a cooldown based on duration. Doing it = long cooldown; skipping = short cooldown.",
+      "doCooldownDays": {
+        "1hr": 14,
+        "4hr": 30,
+        "all-day": 91,
+        "multi-day": 365
+      },
+      "skipCooldownDays": {
+        "1hr": 3,
+        "4hr": 7,
+        "all-day": 14,
+        "multi-day": 30
+      }
+    }
   },
   "activities": [
     {

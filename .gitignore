@@ -4,3 +4,7 @@ node_modules/
 firebase-debug.log
 *firebase-debug*.log
 .DS_Store
+
+# CI service-account key (never commit)
+service-account.json
+sa.json

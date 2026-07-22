@@ -1,0 +1,46 @@
+name: Deploy to Firebase Hosting
+
+# Publishes the app automatically on every push to these branches,
+# and via the "Run workflow" button (workflow_dispatch) in the Actions tab.
+on:
+  push:
+    branches:
+      - main
+      - claude/sf-adventures-app-content-98y1ar
+    paths:
+      - "app/**"
+      - "data/activities.json"
+      - "firebase.json"
+      - "firestore.rules"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sync latest activities into the app
+        run: cp data/activities.json app/activities.json
+
+      - name: Write Firebase service-account credentials
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: printf '%s' "$SA" > "$GITHUB_WORKSPACE/service-account.json"
+
+      - name: Deploy hosting + Firestore rules
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
+        run: |
+          npm install -g firebase-tools
+          firebase deploy \
+            --only hosting,firestore:rules \
+            --project sf-adventures-eb199 \
+            --non-interactive
